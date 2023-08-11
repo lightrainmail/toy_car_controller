@@ -47,7 +47,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t Tx_Data[NRF24L01P_PAYLOAD_LENGTH]={0,1,2,3,4,5,6,7};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -92,8 +92,9 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI2_Init();
   MX_ADC1_Init();
+  MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
-nrf24l01p_tx_init(2500,_1Mbps);
+
 
   /* USER CODE END 2 */
 
@@ -155,7 +156,7 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
-  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV2;
+  PeriphClkInit.AdcClockSelection = RCC_ADCPCLK2_DIV6;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
@@ -163,6 +164,10 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+uint16_t ADC1Value;
+uint16_t ADC2Value;
+
+uint8_t Tx_Data[NRF24L01P_PAYLOAD_LENGTH]={0,0,0,0,0,0,0,0};
 /*
  * @brief    NRF24L01控制函数
  * @param    argument
@@ -171,21 +176,19 @@ void SystemClock_Config(void)
 void NRF24L01Function(void const * argument)
 {
   /* USER CODE BEGIN NRF24L01Function */
+  nrf24l01p_tx_init(2500,_1Mbps);
   /* Infinite loop */
   for(;;)
   {
-      for(int i= 0; i < 8; i++)
-            Tx_Data[i]++;
-
     nrf24l01p_tx_transmit(Tx_Data);
-    osDelay(100);
+    osDelay(1);
   }
   /* USER CODE END NRF24L01Function */
 }
 
 /*
  * @brief   ADC转换线程
- * @note    
+ * @note    启动ADC,等待ADC转换完成,获取ADC之后,以低位先行,存储到发送数组
  * */
 void ADCFunction(void const * argument)
 {
@@ -194,7 +197,22 @@ void ADCFunction(void const * argument)
   /* Infinite loop */
   for(;;)
   {
+      HAL_ADC_Start(&hadc1);
+      HAL_ADC_Start(&hadc2);
 
+      if(HAL_ADC_PollForConversion(&hadc1,5)==HAL_OK){
+          ADC1Value= HAL_ADC_GetValue(&hadc1);
+      }
+
+      if(HAL_ADC_PollForConversion(&hadc2,5)==HAL_OK){
+          ADC2Value= HAL_ADC_GetValue(&hadc2);
+      }
+
+      Tx_Data[0]=(uint8_t)(ADC1Value);      //ADC1数据低八位
+      Tx_Data[1]=(uint8_t)(ADC1Value>>8);   //ADC1数据高八位
+
+      Tx_Data[2]=(uint8_t)(ADC2Value);      //ADC2数据低八位
+      Tx_Data[3]=(uint8_t)(ADC2Value>>8);   //ADC2数据高八位
 
     osDelay(1);
   }
@@ -213,26 +231,18 @@ void LEDFunction(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    HAL_ADC_Start(&hadc1);
-
-      if(HAL_ADC_PollForConversion(&hadc1,10)==HAL_OK){
-          OLED_ShowString(2,0,"HAL_OK");
-          uint32_t Val= HAL_ADC_GetValue(&hadc1);
-
-          OLED_ShowNum(2,2,Val,4,SIZE);
-
-      }
-//      OLED_ShowChar(2,0,'A');
-
-    osDelay(100);
+      OLED_ShowString(2,0,"ADC_Value:");
+      OLED_ShowNum(2,2,ADC1Value,4,SIZE);
+      OLED_ShowNum(2,4,ADC2Value,4,SIZE);
+    osDelay(1);
   }
   /* USER CODE END LEDFunction */
 }
 
 /*
- * @brief    NRF24L01模块触发中断的回调函�???
+ * @brief    NRF24L01模块触发中断的回调函�?????
  * @note     触发方式是下降沿触发
- * @param    GPIO_Pin,触发中断的引�???
+ * @param    GPIO_Pin,触发中断的引�?????
  * @retval   void
  * */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
