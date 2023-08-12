@@ -185,6 +185,17 @@ void NRF24L01Function(void const * argument)
   }
   /* USER CODE END NRF24L01Function */
 }
+/*
+ * @brief    NRF24L01模块触发中断的回调函�?????
+ * @note     触发方式是下降沿触发
+ * @param    GPIO_Pin,触发中断的引�?????
+ * @retval   void
+ * */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin == NRF24L01P_IRQ_PIN_NUMBER)
+		nrf24l01p_tx_irq(); // clear interrupt flag
+}
 
 /*
  * @brief   ADC转换线程
@@ -239,17 +250,7 @@ void LEDFunction(void const * argument)
   /* USER CODE END LEDFunction */
 }
 
-/*
- * @brief    NRF24L01模块触发中断的回调函�?????
- * @note     触发方式是下降沿触发
- * @param    GPIO_Pin,触发中断的引�?????
- * @retval   void
- * */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	if(GPIO_Pin == NRF24L01P_IRQ_PIN_NUMBER)
-		nrf24l01p_tx_irq(); // clear interrupt flag
-}
+
 /* USER CODE END 4 */
 
 /**
