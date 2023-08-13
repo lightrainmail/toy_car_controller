@@ -168,7 +168,7 @@ void NRF24L01Function(void const * argument)
  * @param    GPIO_Pin,触发中断的引脚
  * @retval   void
  * */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)		//再次强调,设定PA8时一定要设定为下降沿触发
 {
     if(GPIO_Pin == NRF24L01P_IRQ_PIN_NUMBER)
        nrf24l01p_tx_irq(); // clear interrupt flag
@@ -180,4 +180,38 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 ____
 
 ## OLED屏幕
+
+在CubeMX中定义一些引脚
+
+![image-20230813164838894](assets/image-20230813164838894.png)
+
+Core/Inc/bmp.h
+
+Core/Inc/oled.h
+
+Core/Inc/oledfont.h
+
+Core/Src/oled.c
+
+以上是OLED所需的驱动文件
+
+下面代码演示了如何使用
+
+```c
+void LEDFunction(void const * argument)
+{
+  /* USER CODE BEGIN LEDFunction */
+    OLED_Init();		//初始化OLED
+
+  /* Infinite loop */
+  for(;;)
+  {
+      OLED_ShowString(2,0,"ADC_Value:");
+      OLED_ShowNum(2,2,ADC1Value,4,SIZE);
+      OLED_ShowNum(2,4,ADC2Value,4,SIZE);
+    osDelay(1);
+  }
+  /* USER CODE END LEDFunction */
+}
+```
 

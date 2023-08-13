@@ -19,10 +19,10 @@
 //              DC   接PD5
 //              CS   接PD3               
 //              ----------------------------------------------------------------
-// 修改历史   :
-// 日    期   : 
-// 作    者   : HuangKai
-// 修改内容   : 创建文件
+// 修改历史    : 解决注释乱码
+// 日    期   : 2023/8/13
+// 作    者   : 向泓政
+// 修改内容    : 修改注释
 //版权所有，盗版必究。
 //Copyright(C) 中景园电子2014/3/16
 //All rights reserved
@@ -46,14 +46,14 @@
 #define X_WIDTH 	128
 #define Y_WIDTH 	64	    						  
 //-----------------OLED端口定义----------------  					   
-/*#define OLED_CS_Clr()  GPIO_ReSetBits(GPIOD,GPIO_Pin_3)//CS
-#define OLED_CS_Set()  GPIO_SetBits(GPIOD,GPIO_Pin_3)
+#define OLED_CS_Clr()  HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,GPIO_PIN_RESET)//CS
+#define OLED_CS_Set()  HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,GPIO_PIN_SET)
 
-#define OLED_RST_Clr() GPIO_ResetBits(GPIOD,GPIO_Pin_4)//RES
-#define OLED_RST_Set() GPIO_SetBits(GPIOD,GPIO_Pin_4)
+#define OLED_RST_Clr() HAL_GPIO_WritePin(RES_GPIO_Port,RES_Pin,GPIO_PIN_RESET)//RES
+#define OLED_RST_Set() HAL_GPIO_WritePin(RES_GPIO_Port,RES_Pin,GPIO_PIN_SET)
 
-#define OLED_DC_Clr() GPIO_ResetBits(GPIOD,GPIO_Pin_5)//DC
-#define OLED_DC_Set() GPIO_SetBits(GPIOD,GPIO_Pin_5)
+#define OLED_DC_Clr() HAL_GPIO_WritePin(DC_GPIO_Port,DC_Pin,GPIO_PIN_RESET)//DC
+#define OLED_DC_Set() HAL_GPIO_WritePin(DC_GPIO_Port,DC_Pin,GPIO_PIN_SET)
 
 #define OLED_WR_Clr() GPIO_ResetBits(GPIOG,GPIO_Pin_14)
 #define OLED_WR_Set() GPIO_SetBits(GPIOG,GPIO_Pin_14)
@@ -67,11 +67,11 @@
 #define DATAOUT(x) GPIO_Write(GPIOC,x);//输出  
 //使用4线串行接口时使用 
 
-#define OLED_SCLK_Clr() GPIO_ResetBits(GPIOD,GPIO_Pin_6)//CLK
-#define OLED_SCLK_Set() GPIO_SetBits(GPIOD,GPIO_Pin_6)
+#define OLED_SCLK_Clr() HAL_GPIO_WritePin(SCK_GPIO_Port,SCK_Pin,GPIO_PIN_RESET)//SCK
+#define OLED_SCLK_Set() HAL_GPIO_WritePin(SCK_GPIO_Port,SCK_Pin,GPIO_PIN_SET)
 
-#define OLED_SDIN_Clr() GPIO_ResetBits(GPIOD,GPIO_Pin_7)//DIN
-#define OLED_SDIN_Set() GPIO_SetBits(GPIOD,GPIO_Pin_7)*/
+#define OLED_SDIN_Clr() HAL_GPIO_WritePin(SDA_GPIO_Port,SDA_Pin,GPIO_PIN_RESET)//SDA
+#define OLED_SDIN_Set() HAL_GPIO_WritePin(SDA_GPIO_Port,SDA_Pin,GPIO_PIN_SET)
 
  		     
 #define OLED_CMD  0	//写命令

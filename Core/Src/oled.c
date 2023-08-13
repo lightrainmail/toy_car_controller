@@ -1,22 +1,29 @@
+//
+//Creat By HuangKai
+//中景园电子
+//
 #include "oled.h"
 #include "oledfont.h"
 #include "main.h"
 
-//OLED?????
-//?????????.
-//[0]0 1 2 3 ... 127	
-//[1]0 1 2 3 ... 127	
-//[2]0 1 2 3 ... 127	
-//[3]0 1 2 3 ... 127	
-//[4]0 1 2 3 ... 127	
-//[5]0 1 2 3 ... 127	
-//[6]0 1 2 3 ... 127	
-//[7]0 1 2 3 ... 127 			   
+/*
+ * OLED的显存
+ * 存放格式如下
+ * [0] 0 1 2 3 ... 127
+ * [1] 0 1 2 3 ... 127
+ * [2] 0 1 2 3 ... 127
+ * [3] 0 1 2 3 ... 127
+ * [4] 0 1 2 3 ... 127
+ * [5] 0 1 2 3 ... 127
+ * [6] 0 1 2 3 ... 127
+ * [7] 0 1 2 3 ... 127
+ * * */
 
 #if OLED_MODE == 1
-//??SSD1106д?????????
-//dat:?д???????/????
-//cmd:????/?????? 0,???????;1,???????;
+/* @brief   向SSD1106写入一个字节
+ * @param   dat 要写入的数据/命令
+ *          cmd 数据/命令标志 0:命令    1:数据
+ * @note    四线串行模式写入*/
 void OLED_WR_Byte(uint8_t dat,uint8_t cmd)
 {
     DATAOUT(dat);
@@ -32,25 +39,10 @@ void OLED_WR_Byte(uint8_t dat,uint8_t cmd)
 }
 #else
 
-#define OLED_CS_Clr()   HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,GPIO_PIN_RESET)
-#define OLED_CS_Set()   HAL_GPIO_WritePin(CS_GPIO_Port,CS_Pin,GPIO_PIN_SET)
-
-#define OLED_RST_Clr()  HAL_GPIO_WritePin(RES_GPIO_Port,RES_Pin,GPIO_PIN_RESET)
-#define OLED_RST_Set()  HAL_GPIO_WritePin(RES_GPIO_Port,RES_Pin,GPIO_PIN_SET)
-
-#define OLED_DC_Clr()   HAL_GPIO_WritePin(DC_GPIO_Port,DC_Pin,GPIO_PIN_RESET)
-#define OLED_DC_Set()   HAL_GPIO_WritePin(DC_GPIO_Port,DC_Pin,GPIO_PIN_SET)
-
-#define OLED_SCLK_Clr() HAL_GPIO_WritePin(SCK_GPIO_Port,SCK_Pin,GPIO_PIN_RESET)
-#define OLED_SCLK_Set() HAL_GPIO_WritePin(SCK_GPIO_Port,SCK_Pin,GPIO_PIN_SET)
-
-#define OLED_SDIN_Clr() HAL_GPIO_WritePin(SDA_GPIO_Port,SDA_Pin,GPIO_PIN_RESET)
-#define OLED_SDIN_Set() HAL_GPIO_WritePin(SDA_GPIO_Port,SDA_Pin,GPIO_PIN_SET)
-
-
-//??SSD1106д?????????
-//dat:?д???????/????
-//cmd:????/?????? 0,???????;1,???????;
+/* @brief   向SSD1106写入一个字节
+ * @param   dat 要写入的数据/命令
+ *          cmd 数据/命令标志 0:命令    1:数据
+ * @note    并行0808模式写入*/
 void OLED_WR_Byte(uint8_t dat, uint8_t cmd) {
     uint8_t i;
     if (cmd)
@@ -79,21 +71,22 @@ void OLED_Set_Pos(unsigned char x, unsigned char y) {
     OLED_WR_Byte((x & 0x0f) | 0x01, OLED_CMD);
 }
 
-//????OLED???    
+/* @brief   开启OLED显示*/
 void OLED_Display_On(void) {
     OLED_WR_Byte(0X8D, OLED_CMD);  //SET DCDC????
     OLED_WR_Byte(0X14, OLED_CMD);  //DCDC ON
     OLED_WR_Byte(0XAF, OLED_CMD);  //DISPLAY ON
 }
 
-//???OLED???
+/* @brief   关闭OLED显示*/
 void OLED_Display_Off(void) {
     OLED_WR_Byte(0X8D, OLED_CMD);  //SET DCDC????
     OLED_WR_Byte(0X10, OLED_CMD);  //DCDC OFF
     OLED_WR_Byte(0XAE, OLED_CMD);  //DISPLAY OFF
 }
 
-//????????,??????,?????????????!??????????!!!	  
+/* @brief   用于清屏
+ * @note    使用后整个屏幕是黑的,和没电亮一样*/
 void OLED_Clear(void) {
     uint8_t i, n;
     for (i = 0; i < 8; i++) {
@@ -104,12 +97,11 @@ void OLED_Clear(void) {
     } //???????
 }
 
-
-//?????λ???????????,???????????
-//x:0~127
-//y:0~63
-//mode:0,???????;1,???????				 
-//size:??????? 16/12 
+/* @brief   在指定位置显示一个字符
+ * @param   x   屏幕x坐标
+ *          y   屏幕y坐标
+ *          chr 要显示的字符
+ * @note    SIZE表示显示的字体,有16和12两种字体选择*/
 void OLED_ShowChar(uint8_t x, uint8_t y, uint8_t chr) {
     unsigned char c = 0, i = 0;
     c = chr - ' ';//?????????
@@ -132,19 +124,19 @@ void OLED_ShowChar(uint8_t x, uint8_t y, uint8_t chr) {
     }
 }
 
-//m^n????
+/* @brief   幂指数显示m^n*/
 uint32_t oled_pow(uint8_t m, uint8_t n) {
     uint32_t result = 1;
     while (n--)result *= m;
     return result;
 }
 
-//???2??????
-//x,y :???????	 
-//len :?????λ??
-//size:?????С
-//mode:??	0,?????;1,??????
-//num:???(0~4294967295);	 		  
+/* @brief   显示数字
+ * @param   x       起点位置x坐标
+ *          y       起点位置y坐标
+ *          num     要显示的数字(最多可显示32位数字   2^32=4294967295)
+ *          len     设定屏幕用几位来显示该数字
+ *          size    设定字体大小*/
 void OLED_ShowNum(uint8_t x, uint8_t y, uint32_t num, uint8_t len, uint8_t size) {
     uint8_t t, temp;
     uint8_t enshow = 0;
@@ -161,7 +153,9 @@ void OLED_ShowNum(uint8_t x, uint8_t y, uint32_t num, uint8_t len, uint8_t size)
     }
 }
 
-//????????????
+/* @brief   显示一个字符串
+ * param    x,y 起始位置
+ *          chr 字符串的首地址,字符串也是一个带有结束符的字符数组*/
 void OLED_ShowString(uint8_t x, uint8_t y, uint8_t *chr) {
     unsigned char j = 0;
     while (chr[j] != '\0') {
@@ -175,7 +169,10 @@ void OLED_ShowString(uint8_t x, uint8_t y, uint8_t *chr) {
     }
 }
 
-//???????
+/* @brief   显示汉字
+ * @param   x,y 起始位置
+ *          no  要显示的汉字,填入的是要显示的汉字的编号
+ * @note    汉字要事先取模后才能显示,本质上就是显示一幅图片*/
 void OLED_ShowCHinese(uint8_t x, uint8_t y, uint8_t no) {
     uint8_t t, adder = 0;
     OLED_Set_Pos(x, y);
@@ -190,7 +187,10 @@ void OLED_ShowCHinese(uint8_t x, uint8_t y, uint8_t no) {
     }
 }
 
-/***********????????????????BMP??128??64?????????(x,y),x???Χ0??127??y?????Χ0??7*****************/
+/* @brief   显示BMP图片z最大尺寸128*64
+ * @param   (x0,y0)图片左上角坐标
+ *          (x1,y1)图片右下角坐标
+ *          BMP[]图片取模生成的数组*/
 void OLED_DrawBMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned char y1, unsigned char BMP[]) {
     unsigned int j = 0;
     unsigned char x, y;
@@ -206,7 +206,8 @@ void OLED_DrawBMP(unsigned char x0, unsigned char y0, unsigned char x1, unsigned
 }
 
 
-//?????SSD1306					    
+/* @brief   SSD1306初始化,也就是初始化OLED
+ * @note    只有执行初始化函数后,其他函数才能使用*/
 void OLED_Init(void) {
 
     OLED_RST_Set();

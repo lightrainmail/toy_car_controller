@@ -1582,15 +1582,15 @@ LOAD c:/progra~1/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.
  .text.NRF24L01Function
                 0x08000464       0x20 CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.obj
                 0x08000464                NRF24L01Function
- .text.ADCFunction
-                0x08000484       0x74 CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.obj
-                0x08000484                ADCFunction
- .text.LEDFunction
-                0x080004f8       0x48 CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.obj
-                0x080004f8                LEDFunction
  .text.HAL_GPIO_EXTI_Callback
-                0x08000540       0x10 CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.obj
-                0x08000540                HAL_GPIO_EXTI_Callback
+                0x08000484       0x10 CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.obj
+                0x08000484                HAL_GPIO_EXTI_Callback
+ .text.ADCFunction
+                0x08000494       0x74 CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.obj
+                0x08000494                ADCFunction
+ .text.LEDFunction
+                0x08000508       0x48 CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.obj
+                0x08000508                LEDFunction
  .text.HAL_TIM_PeriodElapsedCallback
                 0x08000550       0x18 CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.obj
                 0x08000550                HAL_TIM_PeriodElapsedCallback
@@ -2551,33 +2551,33 @@ LOAD c:/progra~1/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.
  .debug_ranges  0x00000fe8       0x40 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
  .debug_ranges  0x00001028      0x268 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
 
-.debug_line     0x00000000    0x135e7
+.debug_line     0x00000000    0x135e6
  .debug_line    0x00000000      0x46b CMakeFiles/toy_car_controller.elf.dir/Core/Src/adc.c.obj
  .debug_line    0x0000046b      0x39e CMakeFiles/toy_car_controller.elf.dir/Core/Src/freertos.c.obj
  .debug_line    0x00000809      0x29d CMakeFiles/toy_car_controller.elf.dir/Core/Src/gpio.c.obj
  .debug_line    0x00000aa6      0x62d CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.obj
  .debug_line    0x000010d3      0x7a4 CMakeFiles/toy_car_controller.elf.dir/Core/Src/nrf24l01p.c.obj
- .debug_line    0x00001877      0x760 CMakeFiles/toy_car_controller.elf.dir/Core/Src/oled.c.obj
- .debug_line    0x00001fd7      0x3ae CMakeFiles/toy_car_controller.elf.dir/Core/Src/spi.c.obj
- .debug_line    0x00002385      0x226 CMakeFiles/toy_car_controller.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_line    0x000025ab      0x374 CMakeFiles/toy_car_controller.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
- .debug_line    0x0000291f      0x337 CMakeFiles/toy_car_controller.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_line    0x00002c56      0x280 CMakeFiles/toy_car_controller.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_line    0x00002ed6       0xb6 CMakeFiles/toy_car_controller.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
- .debug_line    0x00002f8c      0x5ce CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_line    0x0000355a      0xf5a CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
- .debug_line    0x000044b4      0x6a6 CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_line    0x00004b5a      0x64e CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_line    0x000051a8      0xc8b CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_line    0x00005e33      0x500 CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
- .debug_line    0x00006333     0x2535 CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_line    0x00008868     0x49e6 CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_line    0x0000d24e     0x1c5b CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_line    0x0000eea9     0x1245 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
- .debug_line    0x000100ee      0x3e1 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
- .debug_line    0x000104cf      0x692 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
- .debug_line    0x00010b61      0x6d5 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
- .debug_line    0x00011236     0x23b1 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
+ .debug_line    0x00001877      0x75f CMakeFiles/toy_car_controller.elf.dir/Core/Src/oled.c.obj
+ .debug_line    0x00001fd6      0x3ae CMakeFiles/toy_car_controller.elf.dir/Core/Src/spi.c.obj
+ .debug_line    0x00002384      0x226 CMakeFiles/toy_car_controller.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_line    0x000025aa      0x374 CMakeFiles/toy_car_controller.elf.dir/Core/Src/stm32f1xx_hal_timebase_tim.c.obj
+ .debug_line    0x0000291e      0x337 CMakeFiles/toy_car_controller.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_line    0x00002c55      0x280 CMakeFiles/toy_car_controller.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_line    0x00002ed5       0xb6 CMakeFiles/toy_car_controller.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
+ .debug_line    0x00002f8b      0x5ce CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_line    0x00003559      0xf5a CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_adc.c.obj
+ .debug_line    0x000044b3      0x6a6 CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_line    0x00004b59      0x64e CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_line    0x000051a7      0xc8b CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_line    0x00005e32      0x500 CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c.obj
+ .debug_line    0x00006332     0x2535 CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_line    0x00008867     0x49e6 CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_line    0x0000d24d     0x1c5b CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_line    0x0000eea8     0x1245 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+ .debug_line    0x000100ed      0x3e1 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/list.c.obj
+ .debug_line    0x000104ce      0x692 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3/port.c.obj
+ .debug_line    0x00010b60      0x6d5 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c.obj
+ .debug_line    0x00011235     0x23b1 CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/tasks.c.obj
 
 .debug_str      0x00000000     0x5f80
  .debug_str     0x00000000      0x600 CMakeFiles/toy_car_controller.elf.dir/Core/Src/adc.c.obj
