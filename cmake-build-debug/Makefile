@@ -56,10 +56,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.3.4\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\14806\OneDrive\Desktop\toy_car_controller
+CMAKE_SOURCE_DIR = C:\Users\14806\OneDrive\ControllerCar\toy_car_controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\14806\OneDrive\Desktop\toy_car_controller\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\14806\OneDrive\ControllerCar\toy_car_controller\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\14806\OneDrive\Desktop\toy_car_controller\cmake-build-debug\CMakeFiles C:\Users\14806\OneDrive\Desktop\toy_car_controller\cmake-build-debug\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\14806\OneDrive\ControllerCar\toy_car_controller\cmake-build-debug\CMakeFiles C:\Users\14806\OneDrive\ControllerCar\toy_car_controller\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\14806\OneDrive\Desktop\toy_car_controller\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\14806\OneDrive\ControllerCar\toy_car_controller\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -223,54 +223,6 @@ Core/Src/main.s: Core/Src/main.c.s
 Core/Src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Core/Src/main.c.s
 .PHONY : Core/Src/main.c.s
-
-Core/Src/nrf24l01p.obj: Core/Src/nrf24l01p.c.obj
-.PHONY : Core/Src/nrf24l01p.obj
-
-# target to build an object file
-Core/Src/nrf24l01p.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Core/Src/nrf24l01p.c.obj
-.PHONY : Core/Src/nrf24l01p.c.obj
-
-Core/Src/nrf24l01p.i: Core/Src/nrf24l01p.c.i
-.PHONY : Core/Src/nrf24l01p.i
-
-# target to preprocess a source file
-Core/Src/nrf24l01p.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Core/Src/nrf24l01p.c.i
-.PHONY : Core/Src/nrf24l01p.c.i
-
-Core/Src/nrf24l01p.s: Core/Src/nrf24l01p.c.s
-.PHONY : Core/Src/nrf24l01p.s
-
-# target to generate assembly for a file
-Core/Src/nrf24l01p.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Core/Src/nrf24l01p.c.s
-.PHONY : Core/Src/nrf24l01p.c.s
-
-Core/Src/oled.obj: Core/Src/oled.c.obj
-.PHONY : Core/Src/oled.obj
-
-# target to build an object file
-Core/Src/oled.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Core/Src/oled.c.obj
-.PHONY : Core/Src/oled.c.obj
-
-Core/Src/oled.i: Core/Src/oled.c.i
-.PHONY : Core/Src/oled.i
-
-# target to preprocess a source file
-Core/Src/oled.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Core/Src/oled.c.i
-.PHONY : Core/Src/oled.c.i
-
-Core/Src/oled.s: Core/Src/oled.c.s
-.PHONY : Core/Src/oled.s
-
-# target to generate assembly for a file
-Core/Src/oled.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Core/Src/oled.c.s
-.PHONY : Core/Src/oled.c.s
 
 Core/Src/spi.obj: Core/Src/spi.c.obj
 .PHONY : Core/Src/spi.obj
@@ -447,6 +399,54 @@ Core/Startup/startup_stm32f103c8tx.obj: Core/Startup/startup_stm32f103c8tx.s.obj
 Core/Startup/startup_stm32f103c8tx.s.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Core/Startup/startup_stm32f103c8tx.s.obj
 .PHONY : Core/Startup/startup_stm32f103c8tx.s.obj
+
+Drivers/NRF24L01/Src/nrf24l01p.obj: Drivers/NRF24L01/Src/nrf24l01p.c.obj
+.PHONY : Drivers/NRF24L01/Src/nrf24l01p.obj
+
+# target to build an object file
+Drivers/NRF24L01/Src/nrf24l01p.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Drivers/NRF24L01/Src/nrf24l01p.c.obj
+.PHONY : Drivers/NRF24L01/Src/nrf24l01p.c.obj
+
+Drivers/NRF24L01/Src/nrf24l01p.i: Drivers/NRF24L01/Src/nrf24l01p.c.i
+.PHONY : Drivers/NRF24L01/Src/nrf24l01p.i
+
+# target to preprocess a source file
+Drivers/NRF24L01/Src/nrf24l01p.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Drivers/NRF24L01/Src/nrf24l01p.c.i
+.PHONY : Drivers/NRF24L01/Src/nrf24l01p.c.i
+
+Drivers/NRF24L01/Src/nrf24l01p.s: Drivers/NRF24L01/Src/nrf24l01p.c.s
+.PHONY : Drivers/NRF24L01/Src/nrf24l01p.s
+
+# target to generate assembly for a file
+Drivers/NRF24L01/Src/nrf24l01p.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Drivers/NRF24L01/Src/nrf24l01p.c.s
+.PHONY : Drivers/NRF24L01/Src/nrf24l01p.c.s
+
+Drivers/OLED/Src/oled.obj: Drivers/OLED/Src/oled.c.obj
+.PHONY : Drivers/OLED/Src/oled.obj
+
+# target to build an object file
+Drivers/OLED/Src/oled.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Drivers/OLED/Src/oled.c.obj
+.PHONY : Drivers/OLED/Src/oled.c.obj
+
+Drivers/OLED/Src/oled.i: Drivers/OLED/Src/oled.c.i
+.PHONY : Drivers/OLED/Src/oled.i
+
+# target to preprocess a source file
+Drivers/OLED/Src/oled.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Drivers/OLED/Src/oled.c.i
+.PHONY : Drivers/OLED/Src/oled.c.i
+
+Drivers/OLED/Src/oled.s: Drivers/OLED/Src/oled.c.s
+.PHONY : Drivers/OLED/Src/oled.s
+
+# target to generate assembly for a file
+Drivers/OLED/Src/oled.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Drivers/OLED/Src/oled.c.s
+.PHONY : Drivers/OLED/Src/oled.c.s
 
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.obj: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
 .PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.obj
@@ -832,29 +832,29 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.s
 .PHONY : Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.s
 
-Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.obj: Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
-.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.obj
+Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.obj: Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.obj
 
 # target to build an object file
-Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
-.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.obj
+Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
+.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.obj
 
-Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.i: Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.i
-.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.i
+Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.i: Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.i
+.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.i
 
 # target to preprocess a source file
-Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.i
-.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.i
+Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.i
+.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.i
 
-Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.s: Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.s
-.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.s
+Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.s: Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.s
+.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.s
 
 # target to generate assembly for a file
-Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.s
-.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c.s
+Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\toy_car_controller.elf.dir\build.make CMakeFiles/toy_car_controller.elf.dir/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.s
+.PHONY : Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c.s
 
 Middlewares/Third_Party/FreeRTOS/Source/croutine.obj: Middlewares/Third_Party/FreeRTOS/Source/croutine.c.obj
 .PHONY : Middlewares/Third_Party/FreeRTOS/Source/croutine.obj
@@ -1093,12 +1093,6 @@ help:
 	@echo ... Core/Src/main.obj
 	@echo ... Core/Src/main.i
 	@echo ... Core/Src/main.s
-	@echo ... Core/Src/nrf24l01p.obj
-	@echo ... Core/Src/nrf24l01p.i
-	@echo ... Core/Src/nrf24l01p.s
-	@echo ... Core/Src/oled.obj
-	@echo ... Core/Src/oled.i
-	@echo ... Core/Src/oled.s
 	@echo ... Core/Src/spi.obj
 	@echo ... Core/Src/spi.i
 	@echo ... Core/Src/spi.s
@@ -1121,6 +1115,12 @@ help:
 	@echo ... Core/Src/system_stm32f1xx.i
 	@echo ... Core/Src/system_stm32f1xx.s
 	@echo ... Core/Startup/startup_stm32f103c8tx.obj
+	@echo ... Drivers/NRF24L01/Src/nrf24l01p.obj
+	@echo ... Drivers/NRF24L01/Src/nrf24l01p.i
+	@echo ... Drivers/NRF24L01/Src/nrf24l01p.s
+	@echo ... Drivers/OLED/Src/oled.obj
+	@echo ... Drivers/OLED/Src/oled.i
+	@echo ... Drivers/OLED/Src/oled.s
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.obj
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.i
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.s
@@ -1169,9 +1169,9 @@ help:
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.obj
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.i
 	@echo ... Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.s
-	@echo ... Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.obj
-	@echo ... Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.i
-	@echo ... Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.s
+	@echo ... Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.obj
+	@echo ... Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.i
+	@echo ... Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.s
 	@echo ... Middlewares/Third_Party/FreeRTOS/Source/croutine.obj
 	@echo ... Middlewares/Third_Party/FreeRTOS/Source/croutine.i
 	@echo ... Middlewares/Third_Party/FreeRTOS/Source/croutine.s

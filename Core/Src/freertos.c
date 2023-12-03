@@ -25,7 +25,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "nrf24l01p.h"
+#include "oled.h"
+#include "stream_buffer.h"
+#include "adc.h"
+#include "stream_buffer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,40 +49,36 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
+TaskHandle_t ADCHandle;
+BaseType_t ADCRetval;
 
+StreamBufferHandle_t streamBufferHandle;
+StreamBufferHandle_t streamBufferHandle1;
 /* USER CODE END Variables */
-osThreadId defaultTaskHandle;
-osThreadId NRF24L01Handle;
-osThreadId ADCHandle;
-osThreadId LEDHandle;
+/* Definitions for Main */
+osThreadId_t MainHandle;
+const osThreadAttr_t Main_attributes = {
+  .name = "Main",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for OLED */
+osThreadId_t OLEDHandle;
+const osThreadAttr_t OLED_attributes = {
+  .name = "OLED",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityBelowNormal,
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
-
+void APP_ADC(void * param);
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void NRF24L01Function(void const * argument);
-void ADCFunction(void const * argument);
-void LEDFunction(void const * argument);
+void APP_main(void *argument);
+void APP_OLED(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
-
-/* GetIdleTaskMemory prototype (linked to static allocation support) */
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
-
-/* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
-static StaticTask_t xIdleTaskTCBBuffer;
-static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
-
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
-{
-  *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
-  *ppxIdleTaskStackBuffer = &xIdleStack[0];
-  *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
-  /* place for user code */
-}
-/* USER CODE END GET_IDLE_TASK_MEMORY */
 
 /**
   * @brief  FreeRTOS initialization
@@ -107,102 +107,101 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 64);
-  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+  /* creation of Main */
+  MainHandle = osThreadNew(APP_main, NULL, &Main_attributes);
 
-  /* definition and creation of NRF24L01 */
-  osThreadDef(NRF24L01, NRF24L01Function, osPriorityNormal, 0, 64);
-  NRF24L01Handle = osThreadCreate(osThread(NRF24L01), NULL);
-
-  /* definition and creation of ADC */
-  osThreadDef(ADC, ADCFunction, osPriorityNormal, 0, 64);
-  ADCHandle = osThreadCreate(osThread(ADC), NULL);
-
-  /* definition and creation of LED */
-  osThreadDef(LED, LEDFunction, osPriorityNormal, 0, 64);
-  LEDHandle = osThreadCreate(osThread(LED), NULL);
+  /* creation of OLED */
+  OLEDHandle = osThreadNew(APP_OLED, NULL, &OLED_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  /*Creat ADC task*/
+  ADCRetval = xTaskCreate(APP_ADC,"ADC",128,NULL,osPriorityHigh,ADCHandle);
   /* USER CODE END RTOS_THREADS */
+
+  /* USER CODE BEGIN RTOS_EVENTS */
+  /* add events, ... */
+  streamBufferHandle = xStreamBufferCreate(8,4);
+  streamBufferHandle1 = xStreamBufferCreate(8,4);
+  /* USER CODE END RTOS_EVENTS */
 
 }
 
-/* USER CODE BEGIN Header_StartDefaultTask */
+/* USER CODE BEGIN Header_APP_main */
 /**
-  * @brief  Function implementing the defaultTask thread.
+  * @brief  Function implementing the Main thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_StartDefaultTask */
-__weak void StartDefaultTask(void const * argument)
+/* USER CODE END Header_APP_main */
+void APP_main(void *argument)
 {
-  /* USER CODE BEGIN StartDefaultTask */
+  /* USER CODE BEGIN APP_main */
+  uint16_t streamBuffer[2];
+  uint8_t TxBuff[4];
   /* Infinite loop */
   for(;;)
   {
+    xStreamBufferReceive(streamBufferHandle,streamBuffer,4, pdMS_TO_TICKS(10));
+    TxBuff[0] = (uint8_t)streamBuffer[0];
+    TxBuff[1] = (uint8_t)(streamBuffer[0] >> 8);
+    TxBuff[2] = (uint8_t)streamBuffer[1];
+    TxBuff[3] = (uint8_t)(streamBuffer[1] >> 8);
+    nrf24l01p_tx_transmit(TxBuff);
+    xStreamBufferSend(streamBufferHandle1,streamBuffer,4,0);
     osDelay(1);
   }
-  /* USER CODE END StartDefaultTask */
+  /* USER CODE END APP_main */
 }
 
-/* USER CODE BEGIN Header_NRF24L01Function */
+/* USER CODE BEGIN Header_APP_OLED */
 /**
-* @brief Function implementing the NRF24L01 thread.
+* @brief Function implementing the OLED thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_NRF24L01Function */
-__weak void NRF24L01Function(void const * argument)
+/* USER CODE END Header_APP_OLED */
+void APP_OLED(void *argument)
 {
-  /* USER CODE BEGIN NRF24L01Function */
+  /* USER CODE BEGIN APP_OLED */
+  uint16_t adcValue[2];
+  OLED_ShowString(2,4,(uint8_t*)"ADC1:");
+  OLED_ShowString(2,6,(uint8_t*)"ADC2:");
   /* Infinite loop */
   for(;;)
   {
+    xStreamBufferReceive(streamBufferHandle1,adcValue,4,0);
+    OLED_ShowNum(2 + 8*5,4,adcValue[0],4,SIZE);
+    OLED_ShowNum(2 + 8*5,6,adcValue[1],4,SIZE);
     osDelay(1);
   }
-  /* USER CODE END NRF24L01Function */
-}
-
-/* USER CODE BEGIN Header_ADCFunction */
-/**
-* @brief Function implementing the ADC thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_ADCFunction */
-__weak void ADCFunction(void const * argument)
-{
-  /* USER CODE BEGIN ADCFunction */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END ADCFunction */
-}
-
-/* USER CODE BEGIN Header_LEDFunction */
-/**
-* @brief Function implementing the LED thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_LEDFunction */
-__weak void LEDFunction(void const * argument)
-{
-  /* USER CODE BEGIN LEDFunction */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END LEDFunction */
+  /* USER CODE END APP_OLED */
 }
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
+void APP_ADC(void *param) {
+  uint16_t adcValue[2];
+  for(;;) {
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_Start(&hadc2);
+    if(HAL_ADC_PollForConversion(&hadc1,10) == HAL_OK) {
+      adcValue[0] = HAL_ADC_GetValue(&hadc1);
+    }
+    if(HAL_ADC_PollForConversion(&hadc2,10) == HAL_OK) {
+      adcValue[1] = HAL_ADC_GetValue(&hadc2);
+    }
+    xStreamBufferSend(streamBufferHandle,adcValue,4, pdMS_TO_TICKS(10));
 
+    vTaskDelay(1);
+  }
+}
+
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+  if(GPIO_Pin == NRF24L01P_IRQ_PIN_NUMBER) {
+    nrf24l01p_tx_irq(); //clear interrupt flag
+  }
+}
 /* USER CODE END Application */
 

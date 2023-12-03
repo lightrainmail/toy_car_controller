@@ -1,7 +1,7 @@
 //
 // Created by Lightrain on 2023/8/11.
 //
-#include "nrf24l01p.h"
+#include "../Inc/nrf24l01p.h"
 
 
 static void cs_high()

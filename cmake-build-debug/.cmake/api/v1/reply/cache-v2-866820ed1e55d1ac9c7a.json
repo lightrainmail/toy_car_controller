@@ -151,7 +151,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "Debug"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -163,7 +163,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/14806/OneDrive/Desktop/toy_car_controller/cmake-build-debug"
+			"value" : "c:/Users/14806/OneDrive/ControllerCar/toy_car_controller/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -719,7 +719,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -779,7 +779,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller"
+			"value" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -814,12 +814,16 @@
 			"properties" : 
 			[
 				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
 					"name" : "HELPSTRING",
 					"value" : "make program"
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Program Files/mingw64/bin/mingw32-make.exe"
+			"value" : "C:/PROGRA~1/mingw64/bin/mingw32-make.exe"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -1411,7 +1415,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/cmake-build-debug"
+			"value" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/cmake-build-debug"
 		},
 		{
 			"name" : "toy_car_controller_IS_TOP_LEVEL",
@@ -1435,7 +1439,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller"
+			"value" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller"
 		}
 	],
 	"kind" : "cache",

@@ -2,8 +2,8 @@
 //Creat By HuangKai
 //中景园电子
 //
-#include "oled.h"
-#include "oledfont.h"
+#include "../Inc/oled.h"
+#include "../Inc/oledfont.h"
 #include "main.h"
 
 /*

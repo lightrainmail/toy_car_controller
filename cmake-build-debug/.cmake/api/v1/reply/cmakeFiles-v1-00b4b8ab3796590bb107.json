@@ -21,6 +21,11 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2021.3.4/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeMinGWFindMake.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
 			"path" : "C:/Program Files/JetBrains/CLion 2021.3.4/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake"
 		},
 		{
@@ -1202,8 +1207,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/cmake-build-debug",
-		"source" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller"
+		"build" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/cmake-build-debug",
+		"source" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller"
 	},
 	"version" : 
 	{

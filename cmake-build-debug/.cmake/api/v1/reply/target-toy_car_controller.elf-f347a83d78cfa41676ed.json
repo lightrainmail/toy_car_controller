@@ -28,25 +28,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
+				"line" : 67,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 63,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
 				"line" : 64,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 60,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 61,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 62,
+				"line" : 65,
 				"parent" : 0
 			},
 			{
@@ -76,7 +76,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 54,
+				"line" : 57,
 				"parent" : 0
 			},
 			{
@@ -93,7 +93,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu11 -fdiagnostics-color=always"
+					"fragment" : "-std=gnu11 -fdiagnostics-color=always"
 				},
 				{
 					"backtrace" : 5,
@@ -151,35 +151,43 @@
 			[
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Core/Inc"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/OLED/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/NRF24L01/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Drivers/STM32F1xx_HAL_Driver/Inc"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Core/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Drivers/CMSIS/Include"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/STM32F1xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
 				}
 			],
 			"language" : "C",
@@ -193,6 +201,9 @@
 			},
 			"sourceIndexes" : 
 			[
+				8,
+				9,
+				10,
 				11,
 				12,
 				13,
@@ -201,11 +212,8 @@
 				16,
 				17,
 				18,
-				19,
-				20,
-				21,
-				22,
-				23,
+				47,
+				50,
 				81,
 				82,
 				83,
@@ -222,24 +230,21 @@
 				94,
 				95,
 				96,
-				97,
-				99,
+				98,
 				100,
-				118,
+				101,
 				119,
-				121,
+				120,
 				122,
 				123,
 				124,
-				125
+				125,
+				126
 			]
 		},
 		{
 			"compileCommandFragments" : 
 			[
-				{
-					"fragment" : "-g"
-				},
 				{
 					"backtrace" : 5,
 					"fragment" : "-mcpu=cortex-m3"
@@ -304,41 +309,49 @@
 			[
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Core/Inc"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/OLED/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/NRF24L01/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Drivers/STM32F1xx_HAL_Driver/Inc"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Core/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Drivers/CMSIS/Include"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/STM32F1xx_HAL_Driver/Inc"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/include"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/CMSIS/Device/ST/STM32F1xx/Include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Drivers/CMSIS/Include"
 				},
 				{
 					"backtrace" : 10,
-					"path" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3"
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2"
 				}
 			],
 			"language" : "ASM",
 			"sourceIndexes" : 
 			[
-				24
+				19
 			]
 		}
 	],
@@ -348,16 +361,12 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
-				"role" : "flags"
-			},
-			{
 				"fragment" : "",
 				"role" : "flags"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=C:/Users/14806/OneDrive/Desktop/toy_car_controller/cmake-build-debug/toy_car_controller.map",
+				"fragment" : "-Wl,-gc-sections,--print-memory-usage,-Map=C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/cmake-build-debug/toy_car_controller.map",
 				"role" : "flags"
 			},
 			{
@@ -382,7 +391,7 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "C:/Users/14806/OneDrive/Desktop/toy_car_controller/STM32F103C8TX_FLASH.ld",
+				"fragment" : "C:/Users/14806/OneDrive/ControllerCar/toy_car_controller/STM32F103C8TX_FLASH.ld",
 				"role" : "flags"
 			}
 		],
@@ -409,12 +418,14 @@
 				5,
 				6,
 				7,
-				8,
-				9,
-				10,
+				20,
+				21,
+				22,
+				24,
 				25,
 				26,
 				27,
+				28,
 				29,
 				30,
 				31,
@@ -431,9 +442,7 @@
 				42,
 				43,
 				44,
-				45,
 				46,
-				47,
 				48,
 				49,
 				51,
@@ -465,8 +474,8 @@
 				77,
 				78,
 				79,
-				98,
-				101,
+				97,
+				99,
 				102,
 				103,
 				104,
@@ -483,13 +492,17 @@
 				115,
 				116,
 				117,
-				120
+				118,
+				121
 			]
 		},
 		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
+				8,
+				9,
+				10,
 				11,
 				12,
 				13,
@@ -498,11 +511,8 @@
 				16,
 				17,
 				18,
-				19,
-				20,
-				21,
-				22,
-				23,
+				47,
+				50,
 				81,
 				82,
 				83,
@@ -519,27 +529,27 @@
 				94,
 				95,
 				96,
-				97,
-				99,
+				98,
 				100,
-				118,
+				101,
 				119,
-				121,
+				120,
 				122,
 				123,
 				124,
-				125
+				125,
+				126
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				24,
-				28,
-				50,
+				19,
+				23,
+				45,
 				80,
-				126
+				127
 			]
 		}
 	],
@@ -568,21 +578,6 @@
 		{
 			"backtrace" : 1,
 			"path" : "Core/Inc/main.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Core/Inc/nrf24l01p.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Core/Inc/oled.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "Core/Inc/oledfont.h",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -622,18 +617,6 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "Core/Src/main.c",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Core/Src/nrf24l01p.c",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "Core/Src/oled.c",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -813,6 +796,33 @@
 			"backtrace" : 1,
 			"path" : "Drivers/CMSIS/LICENSE.txt",
 			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Drivers/NRF24L01/Inc/nrf24l01p.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Drivers/NRF24L01/Src/nrf24l01p.c",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Drivers/OLED/Inc/oled.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "Drivers/OLED/Inc/oledfont.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "Drivers/OLED/Src/oled.c",
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
@@ -1062,13 +1072,18 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c",
+			"path" : "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h",
+			"path" : "Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h",
 			"sourceGroupIndex" : 0
 		},
 		{
